@@ -1,6 +1,9 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { _electron as electron } from 'playwright';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 test.describe('Coding Team App', () => {
   test('should launch electron app and show main window', async () => {
