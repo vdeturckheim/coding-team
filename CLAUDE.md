@@ -18,14 +18,18 @@ The system uses:
 
 ## Team Member Personas
 
-- **Developer Pool**: Works on GitHub issues in isolated worktrees
-- **PR Reviewer**: Reviews pull requests when triggered
-- **Landing Manager**: Merges approved PRs
-- **CI Health Monitor**: Monitors CI status and responds to failures
-- **Code Quality Manager**: Tracks code health and technical debt
+Team member personas are Claude Code instances with specialized system prompts for specific roles:
+
+- **Developer Pool**: Works on GitHub issues in isolated git worktrees (cannot create/switch branches)
+- **Manager Persona**: Spawns developer agents, assigns issues, prevents conflicts via GitHub comments
+- **PR Reviewer**: Reviews pull requests when triggered by events
+- **Landing Manager**: Merges approved PRs after CI passes
+- **CI Health Monitor & Code Quality Manager**: Monitors CI status, responds to failures, tracks code health and technical debt
 - **Spec Refiner**: Ensures GitHub issues are clear and actionable
-- **Backlog Manager**: Prioritizes and assigns work
+- **Backlog Manager**: Prioritizes and assigns work based on dependencies
 - **QA Engineer**: Tests features and reports bugs
+
+Each persona has a dedicated backlog/queue system for specialized tasks, except developers who work directly on assigned issues.
 
 ## Development Workflow
 
