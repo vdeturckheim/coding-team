@@ -105,13 +105,19 @@ jobs:
         path: dist/
     - name: Smoke test - verify app starts
       run: |
-        timeout 10s xvfb-run -a npm start || exit_code=$?
+        # Try to start the app with better error reporting
+        timeout 10s xvfb-run -a npm start 2>&1 || exit_code=$?
         # Check if it's a timeout (124) which means the app stayed running
         if [ "$exit_code" = "124" ]; then
-          echo "App started successfully and remained running"
+          echo "✅ App started successfully and remained running"
           exit 0
         else
-          echo "App failed to start properly"
+          echo "❌ App failed to start properly with exit code: $exit_code"
+          # Try to get more info about what went wrong
+          echo "Checking if Electron is available..."
+          npx electron --version || echo "Electron not found"
+          echo "Checking dist directory..."
+          ls -la dist/ || echo "No dist directory"
           exit 1
         fi
       env:
