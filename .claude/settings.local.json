@@ -40,7 +40,8 @@
       "Bash(gh pr view:*)",
       "Bash(gh pr checks:*)",
       "Bash(gh run view:*)",
-      "Bash(npm run check-newlines:*)"
+      "Bash(npm run check-newlines:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }

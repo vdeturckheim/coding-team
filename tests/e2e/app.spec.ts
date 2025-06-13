@@ -1,4 +1,4 @@
-import * as path from 'node:path';
+import path from 'node:path';
 import { expect, test } from '@playwright/test';
 import { _electron as electron } from 'playwright';
 
@@ -7,7 +7,7 @@ test.describe('Coding Team App', () => {
     // Launch Electron app with CI-friendly options
     const electronApp = await electron.launch({
       args: [
-        path.join(__dirname, '../../dist/main.js'),
+        path.join(__dirname, '../../dist/src/main.js'),
         ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
       ],
     });
@@ -42,7 +42,7 @@ test.describe('Coding Team App', () => {
   test('should have working console and electron API', async () => {
     const electronApp = await electron.launch({
       args: [
-        path.join(__dirname, '../../dist/main.js'),
+        path.join(__dirname, '../../dist/src/main.js'),
         ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
       ],
     });

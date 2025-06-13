@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob');
+import fs from 'node:fs';
+import { glob } from 'glob';
 
 /**
  * Check and optionally fix missing final newlines in files
