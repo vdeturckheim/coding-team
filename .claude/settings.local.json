@@ -64,7 +64,10 @@
       "Bash(if [ \"$exit_code\" = \"124\" ])",
       "Bash(then echo \"App started successfully\")",
       "Bash(else echo \"App failed with exit code: $exit_code\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Bash(gh run view:*)",
+      "Bash(gh run list:*)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": []
   }
