@@ -1,5 +1,8 @@
-import * as path from 'node:path';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { BrowserWindow, app } from 'electron';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let mainWindow: BrowserWindow | null = null;
 

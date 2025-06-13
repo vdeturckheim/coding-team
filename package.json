@@ -1,5 +1,6 @@
 {
   "name": "coding-team",
+  "type": "module",
   "version": "1.0.0",
   "description": "An opinionated tool built on top of Claude Code that orchestrates a team of AI developers",
   "main": "dist/main.js",
@@ -7,16 +8,28 @@
     "build": "tsc",
     "start": "npm run build && electron .",
     "dev": "tsc && electron . --enable-logging",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "biome check src/",
-    "format": "biome format --write src/",
-    "typecheck": "tsc --noEmit"
+    "test": "npm run test:e2e",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "format:check": "biome check --formatter-enabled=true --linter-enabled=false .",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,js,json}": ["biome check --write"]
   },
   "private": true,
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@playwright/test": "^1.53.0",
     "@types/node": "^24.0.1",
     "electron": "^36.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

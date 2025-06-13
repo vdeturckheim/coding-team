@@ -32,7 +32,27 @@
       "Bash(npm run typecheck:*)",
       "Bash(npm run lint)",
       "Bash(npm run format:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(gh issue list:*)",
+      "Bash(npx playwright:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(find:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)",
+      "Bash(npm run check-newlines:*)",
+      "Bash(mv:*)",
+      "Bash(git rm:*)",
+      "Bash(npx biome lsp-proxy:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx biome check:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(npm run test:e2e:*)",
+      "Bash(node:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run prepare:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }
