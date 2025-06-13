@@ -44,7 +44,8 @@
       "Bash(mv:*)",
       "Bash(git rm:*)",
       "Bash(npx biome lsp-proxy:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(npx biome check:*)"
     ],
     "deny": []
   }
