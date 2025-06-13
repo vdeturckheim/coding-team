@@ -58,7 +58,13 @@
       "Bash(npm run test:unit:*)",
       "Bash(ls:*)",
       "Bash(cat:*)",
-      "Bash(gh pr create:*)"
+      "Bash(gh pr create:*)",
+      "Bash(timeout 10s npm start)",
+      "Bash(exit_code=$?)",
+      "Bash(if [ \"$exit_code\" = \"124\" ])",
+      "Bash(then echo \"App started successfully\")",
+      "Bash(else echo \"App failed with exit code: $exit_code\")",
+      "Bash(fi)"
     ],
     "deny": []
   }
