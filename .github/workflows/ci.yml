@@ -32,8 +32,10 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
-    - name: Lint and format check
+    - name: Lint check
       run: npm run lint
+    - name: Format check
+      run: npm run format:check
     - name: Check final newlines
       run: npm run check-newlines
 

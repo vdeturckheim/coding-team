@@ -23,6 +23,10 @@
         "useConst": "error",
         "noVar": "error",
         "useBlockStatements": "error"
+      },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error"
       }
     }
   },
