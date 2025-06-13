@@ -32,7 +32,9 @@
       "Bash(npm run typecheck:*)",
       "Bash(npm run lint)",
       "Bash(npm run format:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(gh issue list:*)",
+      "Bash(npx playwright:*)"
     ],
     "deny": []
   }
