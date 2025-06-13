@@ -1,10 +1,12 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BrowserWindow, app } from 'electron';
+import { ClaudeService } from './services/claude-service.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let mainWindow: BrowserWindow | null = null;
+const claudeService = new ClaudeService();
 
 const createWindow = (): void => {
   mainWindow = new BrowserWindow({
@@ -35,7 +37,10 @@ const createWindow = (): void => {
   }
 };
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  // Initialize Claude service
+  await claudeService.initialize();
+
   createWindow();
 
   app.on('activate', () => {
@@ -49,4 +54,9 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+app.on('before-quit', async () => {
+  // Cleanup Claude instances before quitting
+  await claudeService.cleanup();
 });
