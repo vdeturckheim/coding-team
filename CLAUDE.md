@@ -12,9 +12,16 @@ The system uses:
 - **Electron** for the desktop application
 - **TypeScript** as the primary language
 - **Claude Code SDK** for managing Claude instances
-- **Git worktrees** for isolated development environments
+- **Git worktrees** for isolated development environments (each Claude instance works in its own worktree)
 - **Biome** for linting/formatting (configured for semicolons and single quotes)
 - **Playwright** for E2E testing
+
+## Critical Architecture Notes
+
+- **Each Claude Code instance MUST operate in its own git worktree**
+- **Personas can create additional worktrees per task for isolation**
+- **Developer personas cannot create/switch branches - restricted to assigned worktree**
+- **Worktree management and cleanup is handled by the main orchestrator**
 
 ## Team Member Personas
 
