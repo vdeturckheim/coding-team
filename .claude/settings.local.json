@@ -34,7 +34,13 @@
       "Bash(npm run format:*)",
       "Bash(git checkout:*)",
       "Bash(gh issue list:*)",
-      "Bash(npx playwright:*)"
+      "Bash(npx playwright:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(find:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)",
+      "Bash(npm run check-newlines:*)"
     ],
     "deny": []
   }

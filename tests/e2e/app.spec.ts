@@ -4,9 +4,12 @@ import { _electron as electron } from 'playwright';
 
 test.describe('Coding Team App', () => {
   test('should launch electron app and show main window', async () => {
-    // Launch Electron app
+    // Launch Electron app with CI-friendly options
     const electronApp = await electron.launch({
-      args: [path.join(__dirname, '../../dist/main.js')],
+      args: [
+        path.join(__dirname, '../../dist/main.js'),
+        ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
+      ],
     });
 
     // Get the first window that the app opens
@@ -38,7 +41,10 @@ test.describe('Coding Team App', () => {
 
   test('should have working console and electron API', async () => {
     const electronApp = await electron.launch({
-      args: [path.join(__dirname, '../../dist/main.js')],
+      args: [
+        path.join(__dirname, '../../dist/main.js'),
+        ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
+      ],
     });
 
     const window = await electronApp.firstWindow();
