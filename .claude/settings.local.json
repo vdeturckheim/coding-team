@@ -41,7 +41,10 @@
       "Bash(gh pr checks:*)",
       "Bash(gh run view:*)",
       "Bash(npm run check-newlines:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(git rm:*)",
+      "Bash(npx biome lsp-proxy:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }

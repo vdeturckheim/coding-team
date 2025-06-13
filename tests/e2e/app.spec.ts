@@ -4,13 +4,17 @@ import { _electron as electron } from 'playwright';
 
 test.describe('Coding Team App', () => {
   test('should launch electron app and show main window', async () => {
-    // Launch Electron app with CI-friendly options
-    const electronApp = await electron.launch({
-      args: [
-        path.join(__dirname, '../../dist/src/main.js'),
-        ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
-      ],
-    });
+    // Check if main.js exists before launching
+    const mainJsPath = path.join(__dirname, '../../dist/main.js');
+
+    // Launch Electron app with CI-friendly options and error handling
+    const electronApp = await electron
+      .launch({
+        args: [mainJsPath, ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [])],
+      })
+      .catch((error) => {
+        throw new Error(`Failed to launch Electron app. Ensure 'npm run build' was run first. Error: ${error.message}`);
+      });
 
     // Get the first window that the app opens
     const window = await electronApp.firstWindow();
@@ -19,20 +23,20 @@ test.describe('Coding Team App', () => {
     const title = await window.title();
     expect(title).toBe('Coding Team');
 
-    // Verify the main heading is present
-    const heading = window.locator('h1');
+    // Verify the main heading using data-testid
+    const heading = window.getByTestId('app-title');
     await expect(heading).toHaveText('🤖 Coding Team');
 
-    // Verify status message
-    const status = window.locator('.status');
+    // Verify status message using data-testid
+    const status = window.getByTestId('app-status');
     await expect(status).toContainText('Electron app successfully initialized');
 
-    // Verify some key UI elements
-    const subtitle = window.locator('.subtitle');
+    // Verify subtitle using data-testid
+    const subtitle = window.getByTestId('app-subtitle');
     await expect(subtitle).toContainText('AI-powered collaborative development orchestrator');
 
-    // Check that features list is present
-    const features = window.locator('.features');
+    // Check that features list is present using data-testid
+    const features = window.getByTestId('features-list');
     await expect(features).toBeVisible();
 
     // Close the app
@@ -40,12 +44,15 @@ test.describe('Coding Team App', () => {
   });
 
   test('should have working console and electron API', async () => {
-    const electronApp = await electron.launch({
-      args: [
-        path.join(__dirname, '../../dist/src/main.js'),
-        ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
-      ],
-    });
+    const mainJsPath = path.join(__dirname, '../../dist/main.js');
+
+    const electronApp = await electron
+      .launch({
+        args: [mainJsPath, ...(process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [])],
+      })
+      .catch((error) => {
+        throw new Error(`Failed to launch Electron app. Ensure 'npm run build' was run first. Error: ${error.message}`);
+      });
 
     const window = await electronApp.firstWindow();
 

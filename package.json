@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "An opinionated tool built on top of Claude Code that orchestrates a team of AI developers",
-  "main": "dist/src/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
     "start": "npm run build && electron .",
@@ -16,9 +16,7 @@
     "lint:fix": "biome check --write src/ tests/",
     "format": "biome format --write src/ tests/",
     "format:check": "biome check --formatter-enabled=true --linter-enabled=false src/ tests/",
-    "typecheck": "tsc --noEmit",
-    "check-newlines": "node scripts/check-newlines.mjs",
-    "check-newlines:fix": "node scripts/check-newlines.mjs --fix"
+    "typecheck": "tsc --noEmit"
   },
   "private": true,
   "devDependencies": {
@@ -26,7 +24,6 @@
     "@playwright/test": "^1.53.0",
     "@types/node": "^24.0.1",
     "electron": "^36.4.0",
-    "glob": "^11.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

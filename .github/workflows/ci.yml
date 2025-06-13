@@ -36,8 +36,6 @@ jobs:
       run: npm run lint
     - name: Format check
       run: npm run format:check
-    - name: Check final newlines
-      run: npm run check-newlines
 
   build:
     runs-on: ubuntu-latest

@@ -9,6 +9,12 @@ out/
 test-results/
 playwright-report/
 
+# TypeScript generated files
+tests/**/*.js
+tests/**/*.js.map
+tests/**/*.d.ts
+tests/**/*.d.ts.map
+
 # IDE
 .idea/
 .vscode/
