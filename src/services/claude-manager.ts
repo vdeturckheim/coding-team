@@ -1,6 +1,6 @@
 import { EventEmitter } from 'node:events';
+import os from 'node:os';
 import path from 'node:path';
-import { app } from 'electron';
 
 // Since the SDK exports a query function that returns an async generator,
 // we'll wrap it in a more traditional instance-based API
@@ -39,7 +39,7 @@ export class ClaudeManager extends EventEmitter {
 
   async createInstance(name: string, workingDirectory?: string): Promise<ClaudeInstance> {
     const id = `claude-${++this.instanceCounter}`;
-    const workDir = workingDirectory || path.join(app.getPath('userData'), 'claude-instances', id);
+    const workDir = workingDirectory || path.join(os.homedir(), '.coding-team', 'claude-instances', id);
 
     const instance: ClaudeInstance = {
       id,

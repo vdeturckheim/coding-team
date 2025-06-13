@@ -1,13 +1,14 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../dist/tests",
-    "rootDir": "./",
+    "outDir": "../dist",
+    "rootDir": "../",
     "declaration": false,
     "declarationMap": false,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "skipLibCheck": true
   },
-  "include": ["./**/*"],
-  "exclude": []
+  "include": ["../src/**/*", "./**/*"],
+  "exclude": ["../node_modules", "../dist"]
 }

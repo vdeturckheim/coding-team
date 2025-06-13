@@ -6,7 +6,12 @@ import { ClaudeService } from './services/claude-service.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let mainWindow: BrowserWindow | null = null;
-const claudeService = new ClaudeService();
+let claudeService: ClaudeService | null = null;
+
+// Only initialize services when not in test environment
+if (process.env.NODE_ENV !== 'test') {
+  claudeService = new ClaudeService();
+}
 
 const createWindow = (): void => {
   mainWindow = new BrowserWindow({
@@ -38,8 +43,10 @@ const createWindow = (): void => {
 };
 
 app.whenReady().then(async () => {
-  // Initialize Claude service
-  await claudeService.initialize();
+  // Initialize Claude service if available
+  if (claudeService) {
+    await claudeService.initialize();
+  }
 
   createWindow();
 
@@ -58,5 +65,7 @@ app.on('window-all-closed', () => {
 
 app.on('before-quit', async () => {
   // Cleanup Claude instances before quitting
-  await claudeService.cleanup();
+  if (claudeService) {
+    await claudeService.cleanup();
+  }
 });
