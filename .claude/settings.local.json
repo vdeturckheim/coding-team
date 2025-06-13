@@ -57,7 +57,8 @@
       "WebFetch(domain:docs.anthropic.com)",
       "Bash(npm run test:unit:*)",
       "Bash(ls:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(gh pr create:*)"
     ],
     "deny": []
   }

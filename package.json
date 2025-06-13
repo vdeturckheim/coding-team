@@ -9,7 +9,7 @@
     "start": "npm run build && electron .",
     "dev": "tsc && electron . --enable-logging",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "node --test --experimental-test-coverage dist/tests/services/*.test.js",
+    "test:unit": "tsc -p tests/tsconfig.json && node --test --experimental-test-coverage dist/tests/services/*.test.js",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright test --ui",

@@ -5,7 +5,7 @@
     "moduleResolution": "Node",
     "lib": ["ES2022", "dom"],
     "outDir": "./dist",
-    "rootDir": "./",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -22,6 +22,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["node_modules", "dist", "public", "tests/e2e"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "public", "tests"]
 }
