@@ -50,7 +50,9 @@
       "Bash(npm run test:e2e:*)",
       "Bash(node:*)",
       "Bash(gh pr comment:*)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "Bash(npm run prepare:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }
