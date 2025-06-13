@@ -1,11 +1,23 @@
 {
   "name": "coding-team",
-  "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An opinionated tool built on top of Claude Code that orchestrates a team of AI developers",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "npm run build && electron .",
+    "dev": "tsc && electron . --enable-logging",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "biome check src/",
+    "format": "biome format --write src/",
+    "typecheck": "tsc --noEmit"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^24.0.1",
+    "electron": "^36.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }

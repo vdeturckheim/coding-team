@@ -2,7 +2,37 @@
   "permissions": {
     "allow": [
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh issue create:*)",
+      "Bash(gh label:*)",
+      "Bash(git branch:*)",
+      "Bash(gh repo edit:*)",
+      "Bash(gh api:*)",
+      "Bash(true)",
+      "Bash(gh issue edit:*)",
+      "Bash(gh issue close:*)",
+      "Bash(gh project create:*)",
+      "Bash(gh project list:*)",
+      "Bash(gh project item-add:*)",
+      "Bash(for i in {19..31} 32 34 35 36)",
+      "Bash(do gh project item-add 2 --owner \"vdeturckheim\" --url \"https://github.com/vdeturckheim/coding-team/issues/$i\")",
+      "Bash(done)",
+      "Bash(for i in 37 38 39)",
+      "Bash(gh project view:*)",
+      "Bash(gh project edit:*)",
+      "Bash(gh project field-create:*)",
+      "Bash(for i in 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 37 38 39)",
+      "Bash(do gh project item-add 4 --owner \"vdeturckheim\" --url \"https://github.com/vdeturckheim/coding-team/issues/$i\")",
+      "Bash(gh issue view:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run format:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }
