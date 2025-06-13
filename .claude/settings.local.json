@@ -48,7 +48,9 @@
       "Bash(npx biome check:*)",
       "Bash(gh pr checks:*)",
       "Bash(npm run test:e2e:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(npm run lint:*)"
     ],
     "deny": []
   }
