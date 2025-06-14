@@ -68,3 +68,7 @@ npm run build
 ## Getting Started
 
 The project uses GitHub issues as the source of truth for development tasks. Check the issues at https://github.com/vdeturckheim/coding-team/issues to see what needs to be implemented. Issues are prioritized (P0 = Critical, P1 = High, P2 = Medium, P3 = Low) and have dependencies noted.
+
+## Memory
+
+- include screenshots in PRs when you change visual stuff

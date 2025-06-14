@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "npm run build && electron .",
     "dev": "tsc && electron . --enable-logging",
-    "test": "npm run test:e2e",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "tsc -p tests/tsconfig.json && node --test --experimental-test-coverage dist/tests/services/*.test.js",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright test --ui",
@@ -32,5 +33,8 @@
     "lint-staged": "^16.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^1.0.22"
   }
 }
