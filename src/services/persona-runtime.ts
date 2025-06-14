@@ -22,13 +22,11 @@ export class PersonaEnvironment extends EventEmitter {
   private personaStore: PersonaStore;
   private activePersonas: Map<string, PersonaRuntime> = new Map();
   private messageQueue: Map<string, PersonaCommunication[]> = new Map();
-  private stateStorePath: string;
 
-  constructor(instanceManager: InstanceManager, personaStore: PersonaStore, projectPath: string) {
+  constructor(instanceManager: InstanceManager, personaStore: PersonaStore, _projectPath: string) {
     super();
     this.instanceManager = instanceManager;
     this.personaStore = personaStore;
-    this.stateStorePath = projectPath;
     this.setupEventHandlers();
   }
 
@@ -196,7 +194,7 @@ export class PersonaEnvironment extends EventEmitter {
       subject,
       content,
       timestamp: new Date(),
-      messageId: `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      messageId: `msg-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`,
     };
 
     // Queue message for recipient

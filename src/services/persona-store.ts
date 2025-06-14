@@ -5,11 +5,9 @@ import type { PersonaDefinition, PersonaType } from '../types/persona.js';
 export class PersonaStore {
   private personas: Map<string, PersonaDefinition> = new Map();
   private personasPath: string;
-  private guidelinesPath: string;
 
   constructor(projectPath: string) {
     this.personasPath = path.join(projectPath, '.coding-team');
-    this.guidelinesPath = this.personasPath;
   }
 
   async initialize(): Promise<void> {
