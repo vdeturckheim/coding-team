@@ -91,29 +91,18 @@ export class PersonaStore {
         ],
       },
       {
-        id: 'spec-refiner',
-        name: 'Spec Refiner',
-        type: 'spec-refiner',
-        description: 'Ensures GitHub issues are clear and actionable',
-        systemPrompt:
-          'You refine GitHub issue specifications. Ensure issues have clear requirements, acceptance criteria, and are properly scoped. Ask clarifying questions and break down complex issues.',
-        singleton: false, // Multiple refiners can work on different issues
-        capabilities: [
-          { name: 'refine-specs', description: 'Refine issue specifications', enabled: true },
-          { name: 'ask-questions', description: 'Ask clarifying questions', enabled: true },
-        ],
-      },
-      {
         id: 'backlog-manager',
-        name: 'Backlog Manager',
+        name: 'Backlog Manager & Spec Refiner',
         type: 'backlog-manager',
-        description: 'Prioritizes and assigns work based on dependencies',
+        description: 'Manages backlog, refines specs, and prioritizes work based on dependencies',
         systemPrompt:
-          'You manage the project backlog. Prioritize issues based on dependencies, business value, and technical requirements. Ensure work is properly sequenced.',
-        singleton: true, // One source of truth for backlog prioritization
+          'You manage the project backlog and refine issue specifications. Prioritize issues based on dependencies, business value, and technical requirements. Ensure issues have clear requirements, acceptance criteria, and are properly scoped. Ask clarifying questions and break down complex issues when needed.',
+        singleton: true, // One source of truth for backlog management and spec refinement
         capabilities: [
           { name: 'prioritize-work', description: 'Prioritize backlog items', enabled: true },
           { name: 'manage-dependencies', description: 'Track issue dependencies', enabled: true },
+          { name: 'refine-specs', description: 'Refine issue specifications', enabled: true },
+          { name: 'ask-questions', description: 'Ask clarifying questions', enabled: true },
         ],
       },
       {

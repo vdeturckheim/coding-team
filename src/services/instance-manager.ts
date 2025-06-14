@@ -4,15 +4,7 @@ import { WorktreeManager } from './worktree-manager.js';
 
 export interface InstanceConfig {
   name: string;
-  type:
-    | 'developer'
-    | 'manager'
-    | 'pr-reviewer'
-    | 'landing-manager'
-    | 'ci-monitor'
-    | 'spec-refiner'
-    | 'backlog-manager'
-    | 'qa-engineer';
+  type: 'developer' | 'manager' | 'pr-reviewer' | 'landing-manager' | 'ci-monitor' | 'backlog-manager' | 'qa-engineer';
   branch?: string;
   systemPrompt?: string;
   environment?: Record<string, string>;

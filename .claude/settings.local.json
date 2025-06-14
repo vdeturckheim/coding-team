@@ -67,7 +67,11 @@
       "Bash(fi)",
       "Bash(gh run view:*)",
       "Bash(gh run list:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(gh run list:*)",
+      "Bash(gh workflow run:*)",
+      "Bash(gh issue:*)",
+      "Bash(npx tailwindcss init:*)"
     ],
     "deny": []
   }

@@ -4,7 +4,6 @@ export type PersonaType =
   | 'pr-reviewer'
   | 'landing-manager'
   | 'ci-monitor'
-  | 'spec-refiner'
   | 'backlog-manager'
   | 'qa-engineer';
 

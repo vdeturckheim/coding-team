@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BrowserWindow, app } from 'electron';
+import { BrowserWindow, app, ipcMain } from 'electron';
 import { ClaudeService } from './services/claude-service.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -26,7 +26,15 @@ const createWindow = (): void => {
     show: false,
   });
 
-  mainWindow.loadFile(path.join(__dirname, '../public/index.html'));
+  // Load the app - in development use Vite server, in production use built files
+  const loadPromise =
+    process.env.NODE_ENV === 'development'
+      ? mainWindow.loadURL('http://localhost:5173')
+      : mainWindow.loadFile(path.join(__dirname, '../index.html'));
+
+  loadPromise.catch((err) => {
+    console.error('Failed to load app:', err);
+  });
 
   mainWindow.once('ready-to-show', () => {
     mainWindow?.show();
@@ -47,6 +55,11 @@ app.whenReady().then(async () => {
   if (claudeService) {
     await claudeService.initialize();
   }
+
+  // Set up IPC handlers
+  ipcMain.handle('get-project-path', () => {
+    return process.cwd();
+  });
 
   createWindow();
 

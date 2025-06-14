@@ -187,7 +187,6 @@ export class PersonaScheduler extends EventEmitter {
       'pr-reviewer': 'pr-reviewer',
       'landing-manager': 'landing-manager',
       'ci-monitor': 'ci-monitor',
-      'spec-refiner': 'spec-refiner',
       'backlog-manager': 'backlog-manager',
       'qa-engineer': 'qa-engineer',
     };

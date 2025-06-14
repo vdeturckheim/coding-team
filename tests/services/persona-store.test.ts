@@ -37,9 +37,11 @@ describe('PersonaStore', () => {
     await store.initialize();
     const manager = store.getPersona('manager');
     const developer = store.getPersona('developer-pool');
+    const backlogManager = store.getPersona('backlog-manager');
 
     assert.strictEqual(manager?.singleton, true);
     assert.strictEqual(developer?.singleton, false);
+    assert.strictEqual(backlogManager?.singleton, true);
   });
 
   test('should get personas by type', async () => {

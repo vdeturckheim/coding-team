@@ -8,6 +8,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onUpdateProgress: (callback: (value: number) => void) =>
     ipcRenderer.on('update-progress', (_event: IpcRendererEvent, value: number) => callback(value)),
   removeAllListeners: (channel: string) => ipcRenderer.removeAllListeners(channel),
+  getProjectPath: () => ipcRenderer.invoke('get-project-path'),
 
   // Claude Code API
   claude: {
