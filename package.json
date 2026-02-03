@@ -35,6 +35,6 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@anthropic-ai/claude-code": "^1.0.22"
+    "@anthropic-ai/claude-code": "^2.0.74"
   }
 }
